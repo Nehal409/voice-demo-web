@@ -21,7 +21,7 @@ export const Contact = (props) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:80/api/v1/voice-agent/calls",
+        "http://3.137.181.26/api/v1/voice-agent/calls",
         {
           phone,
           email,
