@@ -21,10 +21,15 @@ export const Contact = (props) => {
 
     try {
       const response = await axios.post(
-        "http://3.137.181.26/api/v1/voice-agent/calls",
+        "https://9iotkb25bf.execute-api.us-east-2.amazonaws.com/api/v1/voice-agent/calls",
         {
           phone,
           email,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       );
 
