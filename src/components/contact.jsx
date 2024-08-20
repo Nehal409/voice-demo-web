@@ -55,7 +55,7 @@ export const Contact = (props) => {
                 <h2>Book an Appointment</h2>
                 <p>
                   Please fill out the form below to book an appointment at
-                  Ehsaan Tech Hospital. Our team will contact you shortly to
+                  Ehsaan Hospital. Our AI voice agent will contact you shortly to
                   confirm the details.
                 </p>
               </div>
@@ -75,7 +75,9 @@ export const Contact = (props) => {
                       <p className="help-block text-danger"></p>
                     </div>
                   </div>
-                  <div className="col-md-6">
+                </div>
+                <div className="row">
+                <div className="col-md-6">
                     <div className="form-group">
                       <input
                         type="email"
