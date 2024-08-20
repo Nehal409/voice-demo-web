@@ -1,23 +1,29 @@
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const initialState = {
   phone: "",
   email: "",
 };
+
 export const Contact = (props) => {
   const [{ phone, email }, setState] = useState(initialState);
+  const [loading, setLoading] = useState(false); // State to handle button loading
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setState((prevState) => ({ ...prevState, [name]: value }));
   };
+
   const clearState = () => setState({ ...initialState });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(phone, email);
+    setLoading(true);
 
     try {
       const response = await axios.post(
@@ -34,17 +40,18 @@ export const Contact = (props) => {
       );
 
       console.log("Response:", response.data);
-      clearState();
-      alert(
-        "Appointment request submitted successfully. We will contact you shortly."
+      toast.success(
+        "Request submitted successfully. We will contact you shortly."
       );
+      clearState();
     } catch (error) {
       console.error("There was an error submitting the form:", error);
-      alert(
-        "Failed to submit the appointment request. Please try again later."
-      );
+      toast.error("Request failed. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
+
   return (
     <div>
       <div id="contact">
@@ -55,8 +62,8 @@ export const Contact = (props) => {
                 <h2>Book an Appointment</h2>
                 <p>
                   Please fill out the form below to book an appointment at
-                  Ehsaan Hospital. Our AI voice agent will contact you shortly to
-                  confirm the details.
+                  Ehsaan Hospital. Our AI voice agent will contact you shortly
+                  to confirm the details.
                 </p>
               </div>
               <form name="sentMessage" validate onSubmit={handleSubmit}>
@@ -70,6 +77,7 @@ export const Contact = (props) => {
                         className="form-control"
                         placeholder="Phone"
                         required
+                        value={phone}
                         onChange={handleChange}
                       />
                       <p className="help-block text-danger"></p>
@@ -77,7 +85,7 @@ export const Contact = (props) => {
                   </div>
                 </div>
                 <div className="row">
-                <div className="col-md-6">
+                  <div className="col-md-6">
                     <div className="form-group">
                       <input
                         type="email"
@@ -86,6 +94,7 @@ export const Contact = (props) => {
                         className="form-control"
                         placeholder="Email"
                         required
+                        value={email}
                         onChange={handleChange}
                       />
                       <p className="help-block text-danger"></p>
@@ -94,8 +103,12 @@ export const Contact = (props) => {
                 </div>
 
                 <div id="success"></div>
-                <button type="submit" className="btn btn-custom btn-lg">
-                  Book Appointment
+                <button
+                  type="submit"
+                  className="btn btn-custom btn-lg"
+                  disabled={loading}
+                >
+                  {loading ? "Submitting..." : "Book Appointment"}
                 </button>
               </form>
             </div>
@@ -111,6 +124,10 @@ export const Contact = (props) => {
           <p>&copy; Ehsaan Technologies</p>
         </div>
       </div>
+      <ToastContainer
+        progressClassName="toastProgress"
+        bodyClassName="toastBody"
+      />
     </div>
   );
 };

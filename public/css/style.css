@@ -206,7 +206,8 @@ a:focus,
   display: table;
   width: 100%;
   padding: 0;
-  background: url(../img/confident-doctor-hospital-room.jpg) center center no-repeat;
+  background: url(../img/confident-doctor-hospital-room.jpg) center center
+    no-repeat;
   background-color: #e5e5e5;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -362,6 +363,16 @@ label {
   border-bottom: 2px solid #608dfd;
 }
 
+.Toastify__toast--success {
+  border-radius: 10px;
+}
+
+.Toastify__toast--error {
+  border-radius: 10px;
+}
+.toastBody {
+  font-size: 15px;
+}
 @media (max-width: 768px) {
   #about img {
     margin: 50px 0;
