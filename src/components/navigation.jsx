@@ -2,32 +2,22 @@ import React from "react";
 
 export const Navigation = (props) => {
   return (
-    <nav id="menu" className="navbar navbar-default navbar-fixed-top">
-      <div className="container">
-        <div className="navbar-header">
-          <button
-            type="button"
-            className="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1"
-          >
-            {" "}
-            <span className="sr-only">Toggle navigation</span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
-          </button>
-          <a className="navbar-brand page-scroll" href="#page-top">
-            Ehsaan Hospital
-          </a>{" "}
+    <nav id="menu" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-left">
+          <a class="navbar-brand page-scroll" href="#page-top">
+            Ehsaan Voice AI
+          </a>
         </div>
-
-        <div
-          className="collapse navbar-collapse"
-          id="bs-example-navbar-collapse-1"
-        >
-          <ul className="nav navbar-nav navbar-right">
-          </ul>
+        <div class="navbar-right">
+          <a
+            class="navbar-brand page-scroll"
+            href="https://ehsaantech.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ehsaan Technologies
+          </a>
         </div>
       </div>
     </nav>

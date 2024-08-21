@@ -61,9 +61,10 @@ export const Contact = (props) => {
               <div className="section-title">
                 <h2>Book an Appointment</h2>
                 <p>
-                  Please fill out the form below to book an appointment at
-                  Ehsaan Hospital. Our AI voice agent will contact you shortly
-                  to confirm the details.
+                  Please fill out the form below to book an appointment with
+                  Ehsaan Voice AI.
+                  <br /> Our AI voice agent will contact you shortly to confirm
+                  the details.
                 </p>
               </div>
               <form name="sentMessage" validate onSubmit={handleSubmit}>
@@ -121,7 +122,24 @@ export const Contact = (props) => {
       </div>
       <div id="footer">
         <div className="container text-center">
-          <p>&copy; Ehsaan Technologies</p>
+          <p>
+            {" "}
+            &copy;{" "}
+            <a
+              href="https://ehsaantech.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "gray"}}
+              onMouseOver={(e) => {
+                e.target.style.color = "blue";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.color = "gray";
+              }}
+            >
+              Ehsaan Technologies
+            </a>
+          </p>
         </div>
       </div>
       <ToastContainer
