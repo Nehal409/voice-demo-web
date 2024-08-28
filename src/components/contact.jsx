@@ -27,7 +27,7 @@ export const Contact = (props) => {
 
     try {
       const response = await axios.post(
-        "https://9iotkb25bf.execute-api.us-east-2.amazonaws.com/api/v1/voice-agent/calls",
+        "https://9iotkb25bf.execute-api.us-east-2.amazonaws.com/api/v1/voice-agent/calls/hospital",
         {
           phone,
           email,
